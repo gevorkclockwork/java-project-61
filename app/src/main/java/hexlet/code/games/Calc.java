@@ -52,7 +52,6 @@ public class Calc {
             System.out.println("Congratulations, " + name + "!");
         }
 
-
     }
 
 }
