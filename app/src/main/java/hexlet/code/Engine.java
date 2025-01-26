@@ -2,13 +2,14 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
 
-    public static void gameManagement(int gameNumber) {
+    public static void gamesManagement(int gameNumber) {
 
         String name = Greet.greeting();
         Scanner scanner = new Scanner(System.in);
@@ -20,6 +21,9 @@ public class Engine {
                 break;
             case 3:
                 Calc.calculateExpression(name, scanner, random);
+                break;
+            case 4:
+                GCD.calculateGCD(name, scanner, random);
                 break;
             default:
         }

@@ -31,9 +31,7 @@ public class Even {
             } else {
                 break;
             }
-
         }
-
 
         if (rightAnswers == 3) {
             System.out.println("Congratulations, " + name + "!");
