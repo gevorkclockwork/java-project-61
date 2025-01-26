@@ -10,10 +10,12 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         int rightAnswers = 0;
+        int correctAnswersToWin = 3;
+        int randomNumbersBound = 100;
 
-        while (rightAnswers != 3) {
+        while (rightAnswers != correctAnswersToWin) {
 
-            int randomNumber = random.nextInt(100);
+            int randomNumber = random.nextInt(randomNumbersBound);
 
             String numberIsPrime = "yes";
 
@@ -39,7 +41,7 @@ public class Prime {
             }
         }
 
-        if (rightAnswers == 3) {
+        if (rightAnswers == correctAnswersToWin) {
             System.out.println("Congratulations, " + name + "!");
         }
     }

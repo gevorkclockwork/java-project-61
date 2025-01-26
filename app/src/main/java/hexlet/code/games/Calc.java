@@ -10,10 +10,12 @@ public class Calc {
         System.out.println("What is the result of the expression?");
 
         int rightAnswers = 0;
+        int correctAnswersToWin = 3;
+        int randomNumbersBound = 20;
 
-        while (rightAnswers != 3) {
-            int randomNumber1 = random.nextInt(20);
-            int randomNumber2 = random.nextInt(20);
+        while (rightAnswers != correctAnswersToWin) {
+            int randomNumber1 = random.nextInt(randomNumbersBound);
+            int randomNumber2 = random.nextInt(randomNumbersBound);
             char[] operations = {'+', '-', '*'};
             int randomIndex = random.nextInt(operations.length);
             char operation = operations[randomIndex];
@@ -46,7 +48,7 @@ public class Calc {
             }
         }
 
-        if (rightAnswers == 3) {
+        if (rightAnswers == correctAnswersToWin) {
             System.out.println("Congratulations, " + name + "!");
         }
 

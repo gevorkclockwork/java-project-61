@@ -10,9 +10,12 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int rightAnswers = 0;
+        int correctAnswersToWin = 3;
+        int randomNumbersBound = 100;
 
-        while (rightAnswers != 3) {
-            int randomNumber = random.nextInt(100);
+
+        while (rightAnswers != correctAnswersToWin) {
+            int randomNumber = random.nextInt(randomNumbersBound);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String answer = scanner.nextLine();
@@ -33,7 +36,7 @@ public class Even {
             }
         }
 
-        if (rightAnswers == 3) {
+        if (rightAnswers == correctAnswersToWin) {
             System.out.println("Congratulations, " + name + "!");
         }
 
