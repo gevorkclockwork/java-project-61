@@ -10,7 +10,6 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
 
         int rightAnswers = 0;
-
         int correctAnswersToWin = 3;
         int randomNumbersBound = 20;
         int lowerBound = 1;

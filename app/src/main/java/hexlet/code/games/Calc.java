@@ -10,7 +10,6 @@ public class Calc {
         System.out.println("What is the result of the expression?");
 
         int rightAnswers = 0;
-
         int correctAnswersToWin = 3;
         int randomNumbersBound = 20;
 

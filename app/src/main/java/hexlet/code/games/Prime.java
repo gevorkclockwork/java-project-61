@@ -10,7 +10,6 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         int rightAnswers = 0;
-
         int correctAnswersToWin = 3;
         int lowerBound = 2;
         int upperBound = 100;
