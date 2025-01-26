@@ -10,14 +10,16 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
 
         int rightAnswers = 0;
+
         int correctAnswersToWin = 3;
         int randomNumbersBound = 20;
         int lowerBound = 1;
         int upperBound = 10;
+        int arrayLength = 10;
 
         while (rightAnswers != correctAnswersToWin) {
 
-            int[] progression = new int[10];
+            int[] progression = new int[arrayLength];
 
             int step = random.nextInt(lowerBound, upperBound);
             int number = random.nextInt(randomNumbersBound);

@@ -7,6 +7,7 @@ public class Even {
 
     public static void evenParity(String name, Scanner scanner, Random random) {
 
+
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int rightAnswers = 0;

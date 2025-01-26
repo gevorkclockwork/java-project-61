@@ -10,6 +10,7 @@ public class GCD {
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int rightAnswers = 0;
+
         int correctAnswersToWin = 3;
         int randomNumbersBound = 100;
 
