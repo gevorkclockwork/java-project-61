@@ -28,7 +28,7 @@ public class Progression {
             System.out.print("Question: ");
             for (int i = 0; i < progression.length; i++) {
                 if (progression[i] == hiddenElement) {
-                    System.out.print(". ." + " ");
+                    System.out.print(".." + " ");
                 } else {
                     System.out.print(progression[i] + " ");
                 }
