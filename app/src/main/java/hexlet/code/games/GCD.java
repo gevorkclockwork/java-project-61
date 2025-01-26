@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GCD {
+
     public static void calculateGCD(String name, Scanner scanner, Random random) {
 
         System.out.println("Find the greatest common divisor of given numbers.");

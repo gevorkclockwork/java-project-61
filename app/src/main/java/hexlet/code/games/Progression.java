@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Progression {
+
     public static void determineNumber(String name, Scanner scanner, Random random) {
 
         System.out.println("What number is missing in the progression?");

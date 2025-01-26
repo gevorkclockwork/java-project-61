@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -28,6 +25,9 @@ public class Engine {
                 break;
             case 5:
                 Progression.determineNumber(name, scanner, random);
+                break;
+            case 6:
+                Prime.checkingNumber(name, scanner, random);
                 break;
             default:
         }
