@@ -16,21 +16,21 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        int gameNumber = scanner.nextInt();
+        String gameNumber = scanner.nextLine();
         System.out.println();
 
         switch (gameNumber) {
-            case 1:
+            case "1":
                 Greet.greeting();
                 break;
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
                 Engine.gamesManagement(gameNumber);
                 break;
-            case 0:
+            case "0":
                 break;
             default:
         }
