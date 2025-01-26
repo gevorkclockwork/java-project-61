@@ -22,7 +22,6 @@ public class Prime {
             for (int i = 2; i < randomNumber; i++) {
                 if (randomNumber % i == 0) {
                     numberIsPrime = "no";
-                    break;
                 }
             }
 
