@@ -11,11 +11,12 @@ public class Prime {
 
         int rightAnswers = 0;
         int correctAnswersToWin = 3;
-        int randomNumbersBound = 100;
+        int lowerBound = 2;
+        int upperBound = 100;
 
         while (rightAnswers != correctAnswersToWin) {
 
-            int randomNumber = random.nextInt(randomNumbersBound);
+            int randomNumber = random.nextInt(lowerBound, upperBound);
 
             String numberIsPrime = "yes";
 
