@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.util.Random;
 import java.util.Scanner;
 
+import static hexlet.code.Engine.BOUND_20;
 import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
 
 public class Calc {
@@ -12,11 +13,10 @@ public class Calc {
         System.out.println("What is the result of the expression?");
 
         int rightAnswers = 0;
-        int randomNumbersBound = 20;
 
         while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
-            int randomNumber1 = random.nextInt(randomNumbersBound);
-            int randomNumber2 = random.nextInt(randomNumbersBound);
+            int randomNumber1 = random.nextInt(BOUND_20);
+            int randomNumber2 = random.nextInt(BOUND_20);
             char[] operations = {'+', '-', '*'};
             int randomIndex = random.nextInt(operations.length);
             char operation = operations[randomIndex];

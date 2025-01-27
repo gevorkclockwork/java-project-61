@@ -3,7 +3,7 @@ package hexlet.code.games;
 import java.util.Random;
 import java.util.Scanner;
 
-import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
+import static hexlet.code.Engine.*;
 
 public class Progression {
 
@@ -12,17 +12,13 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
 
         int rightAnswers = 0;
-        int randomNumbersBound = 20;
-        int lowerBound = 1;
-        int upperBound = 10;
-        int arrayLength = 10;
 
         while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
 
-            int[] progression = new int[arrayLength];
+            int[] progression = new int[10];
 
-            int step = random.nextInt(lowerBound, upperBound);
-            int number = random.nextInt(randomNumbersBound);
+            int step = random.nextInt(FIRST_PROGRESSION_STEP, LAST_PROGRESSION_STEP);
+            int number = random.nextInt(BOUND_20);
 
             for (int i = 0; i < progression.length; i++) {
                 progression[i] = number;

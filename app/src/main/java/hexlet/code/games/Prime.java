@@ -3,7 +3,7 @@ package hexlet.code.games;
 import java.util.Random;
 import java.util.Scanner;
 
-import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
+import static hexlet.code.Engine.*;
 
 public class Prime {
 
@@ -12,12 +12,10 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         int rightAnswers = 0;
-        int lowerBound = 2;
-        int upperBound = 100;
 
         while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
 
-            int randomNumber = random.nextInt(lowerBound, upperBound);
+            int randomNumber = random.nextInt(LOWER_BOUND_PRIME_NUMBERS, BOUND_100);
 
             String numberIsPrime = "yes";
 

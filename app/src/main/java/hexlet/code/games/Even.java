@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.util.Random;
 import java.util.Scanner;
 
+import static hexlet.code.Engine.BOUND_100;
 import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
 
 public class Even {
@@ -13,11 +14,9 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int rightAnswers = 0;
-        int randomNumbersBound = 100;
-
 
         while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
-            int randomNumber = random.nextInt(randomNumbersBound);
+            int randomNumber = random.nextInt(BOUND_100);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String answer = scanner.nextLine();
