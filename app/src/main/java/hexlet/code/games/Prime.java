@@ -3,7 +3,9 @@ package hexlet.code.games;
 import java.util.Random;
 import java.util.Scanner;
 
-import static hexlet.code.Engine.*;
+import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
+import static hexlet.code.Engine.LOWER_BOUND_PRIME_NUMBERS;
+import static hexlet.code.Engine.BOUND_100;
 
 public class Prime {
 

@@ -17,6 +17,7 @@ public class Engine {
     public static final int LOWER_BOUND_PRIME_NUMBERS = 2;
     public static final int FIRST_PROGRESSION_STEP = 1;
     public static final int LAST_PROGRESSION_STEP = 10;
+    public static final int PROGRESSION_LENGTH = 10;
 
     public static void gamesManagement(String gameNumber) {
 

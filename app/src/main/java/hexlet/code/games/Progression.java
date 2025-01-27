@@ -3,7 +3,11 @@ package hexlet.code.games;
 import java.util.Random;
 import java.util.Scanner;
 
-import static hexlet.code.Engine.*;
+import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
+import static hexlet.code.Engine.BOUND_20;
+import static hexlet.code.Engine.FIRST_PROGRESSION_STEP;
+import static hexlet.code.Engine.LAST_PROGRESSION_STEP;
+import static hexlet.code.Engine.PROGRESSION_LENGTH;
 
 public class Progression {
 
@@ -15,7 +19,7 @@ public class Progression {
 
         while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
 
-            int[] progression = new int[10];
+            int[] progression = new int[PROGRESSION_LENGTH];
 
             int step = random.nextInt(FIRST_PROGRESSION_STEP, LAST_PROGRESSION_STEP);
             int number = random.nextInt(BOUND_20);
