@@ -11,6 +11,8 @@ import java.util.Scanner;
 
 public class Engine {
 
+    public static final int CORRECT_ANSWERS_TO_WIN = 3;
+
     public static void gamesManagement(String gameNumber) {
 
         String name = Greet.greeting();

@@ -3,6 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 import java.util.Scanner;
 
+import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
+
 public class Progression {
 
     public static void determineNumber(String name, Scanner scanner, Random random) {
@@ -10,13 +12,12 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
 
         int rightAnswers = 0;
-        int correctAnswersToWin = 3;
         int randomNumbersBound = 20;
         int lowerBound = 1;
         int upperBound = 10;
         int arrayLength = 10;
 
-        while (rightAnswers != correctAnswersToWin) {
+        while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
 
             int[] progression = new int[arrayLength];
 
@@ -53,7 +54,7 @@ public class Progression {
             }
         }
 
-        if (rightAnswers == correctAnswersToWin) {
+        if (rightAnswers == CORRECT_ANSWERS_TO_WIN) {
             System.out.println("Congratulations, " + name + "!");
         }
     }

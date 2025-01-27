@@ -3,6 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 import java.util.Scanner;
 
+import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
+
 public class Even {
 
     public static void evenParity(String name, Scanner scanner, Random random) {
@@ -11,11 +13,10 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int rightAnswers = 0;
-        int correctAnswersToWin = 3;
         int randomNumbersBound = 100;
 
 
-        while (rightAnswers != correctAnswersToWin) {
+        while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
             int randomNumber = random.nextInt(randomNumbersBound);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
@@ -37,7 +38,7 @@ public class Even {
             }
         }
 
-        if (rightAnswers == correctAnswersToWin) {
+        if (rightAnswers == CORRECT_ANSWERS_TO_WIN) {
             System.out.println("Congratulations, " + name + "!");
         }
 
