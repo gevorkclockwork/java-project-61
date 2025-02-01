@@ -27,14 +27,14 @@ public class GCD {
 
 
     public static String getGCD(int randomNumber1, int randomNumber2) {
-        int gcd = 0;
+        double gcd = 0;
 
-        int maxNumber = Math.max(randomNumber1, randomNumber2);
-        int minNumber = Math.min(randomNumber1, randomNumber2);
+        double maxNumber = Math.max(randomNumber1, randomNumber2);
+        double minNumber = Math.min(randomNumber1, randomNumber2);
 
         while (gcd == 0) {
 
-            int remainderOfDivision = maxNumber % minNumber;
+            double remainderOfDivision = maxNumber % minNumber;
 
             if (remainderOfDivision == 0) {
                 gcd = minNumber;
@@ -44,7 +44,7 @@ public class GCD {
             }
         }
 
-        return Integer.toString(gcd);
+        return Double.toString(gcd);
     }
 
 }
