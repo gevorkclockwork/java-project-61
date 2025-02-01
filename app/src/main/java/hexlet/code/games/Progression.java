@@ -2,7 +2,11 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-import static hexlet.code.Constants.*;
+import static hexlet.code.Constants.ROUNDS_COUNT;
+import static hexlet.code.Constants.PROGRESSION_LENGTH;
+import static hexlet.code.Constants.FIRST_PROGRESSION_STEP;
+import static hexlet.code.Constants.LAST_PROGRESSION_STEP;
+import static hexlet.code.Constants.BOUND_20;
 import static hexlet.code.Engine.runGame;
 
 
@@ -14,7 +18,7 @@ public class Progression {
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         int[] progression = new int[PROGRESSION_LENGTH];
-        ;
+
         int hiddenElement;
 
         for (var qwsAndAns : questionsAndAnswers) {
@@ -39,7 +43,7 @@ public class Progression {
             }
 
             qwsAndAns[0] = String.valueOf(progressionString);
-            ;
+
             qwsAndAns[1] = Integer.toString(hiddenElement);
         }
 

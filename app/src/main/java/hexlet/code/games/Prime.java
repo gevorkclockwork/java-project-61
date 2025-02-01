@@ -2,7 +2,9 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-import static hexlet.code.Constants.*;
+import static hexlet.code.Constants.ROUNDS_COUNT;
+import static hexlet.code.Constants.LOWER_BOUND_PRIME_NUMBERS;
+import static hexlet.code.Constants.BOUND_100;
 import static hexlet.code.Engine.runGame;
 
 public class Prime {

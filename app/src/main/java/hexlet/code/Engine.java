@@ -18,7 +18,8 @@ public class Engine {
             if (userAnswer.toLowerCase().equals(qwsAndAns[1])) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + qwsAndAns[1] + "'.");
+                System.out.println("'"
+                        + userAnswer + "' is wrong answer ;(. Correct answer was '" + qwsAndAns[1] + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 return;
             }
