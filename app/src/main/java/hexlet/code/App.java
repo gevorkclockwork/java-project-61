@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.games.*;
 import java.util.Scanner;
 
 public class App {
@@ -21,19 +22,28 @@ public class App {
 
         switch (gameNumber) {
             case "1":
-                Greet.greeting();
+                Greet.greet();
                 break;
             case "2":
+                Even.startGame();
+                break;
             case "3":
+                Calc.startGame();
+                break;
             case "4":
+                GCD.startGame();
+                break;
             case "5":
+                Progression.startGame();
+                break;
             case "6":
-                Engine.gamesManagement(gameNumber);
+                Prime.startGame();
                 break;
             case "0":
                 break;
             default:
         }
+
 
     }
 }

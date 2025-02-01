@@ -1,50 +1,40 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.Scanner;
 
-import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
-import static hexlet.code.Engine.LOWER_BOUND_PRIME_NUMBERS;
-import static hexlet.code.Engine.BOUND_100;
+import static hexlet.code.Constants.*;
+import static hexlet.code.Engine.runGame;
 
 public class Prime {
 
-    public static void checkingNumber(String name, Scanner scanner, Random random) {
+    public static void startGame() {
 
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        String question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
-        int rightAnswers = 0;
+        for (var qwsAndAns : questionsAndAnswers) {
+            int randomNumber = new Random().nextInt(LOWER_BOUND_PRIME_NUMBERS, BOUND_100);
 
-        while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
-
-            int randomNumber = random.nextInt(LOWER_BOUND_PRIME_NUMBERS, BOUND_100);
-
-            String numberIsPrime = "yes";
-
-            for (int i = 2; i < randomNumber; i++) {
-                if (randomNumber % i == 0) {
-                    numberIsPrime = "no";
-                }
-            }
-
-            System.out.println("Question: " + randomNumber);
-            System.out.print("Your answer: ");
-            String answer = scanner.nextLine();
-
-            if (answer.equals(numberIsPrime)) {
-                System.out.println("Correct!");
-                rightAnswers++;
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. "
-                        + "Correct answer was '" + numberIsPrime + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                break;
-            }
+            qwsAndAns[0] = Integer.toString(randomNumber);
+            qwsAndAns[1] = checkPrime(randomNumber);
         }
 
-        if (rightAnswers == CORRECT_ANSWERS_TO_WIN) {
-            System.out.println("Congratulations, " + name + "!");
-        }
+        runGame(question, questionsAndAnswers);
+
     }
+
+
+    public static String checkPrime(int randomNumber) {
+
+        String numberIsPrime = "yes";
+
+        for (int i = 2; i < randomNumber; i++) {
+            if (randomNumber % i == 0) {
+                numberIsPrime = "no";
+            }
+        }
+        return numberIsPrime;
+    }
+
 
 }

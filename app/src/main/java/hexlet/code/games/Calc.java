@@ -1,58 +1,48 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.Scanner;
 
-import static hexlet.code.Engine.BOUND_20;
-import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
+import static hexlet.code.Constants.*;
+import static hexlet.code.Engine.runGame;
 
 public class Calc {
 
-    public static void calculateExpression(String name, Scanner scanner, Random random) {
+    public static void startGame() {
 
-        System.out.println("What is the result of the expression?");
+        String question = "What is the result of the expression?";
+        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
+        char[] operations = {'+', '-', '*'};
 
-        int rightAnswers = 0;
-
-        while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
-            int randomNumber1 = random.nextInt(BOUND_20);
-            int randomNumber2 = random.nextInt(BOUND_20);
-            char[] operations = {'+', '-', '*'};
-            int randomIndex = random.nextInt(operations.length);
+        for (var qwsAndAns : questionsAndAnswers) {
+            int randomNumber1 = new Random().nextInt(BOUND_100);
+            int randomNumber2 = new Random().nextInt(BOUND_100);
+            int randomIndex = new Random().nextInt(operations.length);
             char operation = operations[randomIndex];
 
-            System.out.println("Question: " + randomNumber1 + " " + operation + " " + randomNumber2);
-            System.out.print("Your answer: ");
-            int answer = scanner.nextInt();
+            qwsAndAns[0] = randomNumber1 + " " + operation + " " + randomNumber2;
+            qwsAndAns[1] = randomCalc(randomNumber1, randomNumber2, operation);
+        }
 
-            int result = 0;
-            switch (operation) {
-                case '+':
-                    result = randomNumber1 + randomNumber2;
-                    break;
-                case '-':
-                    result = randomNumber1 - randomNumber2;
-                    break;
-                case '*':
-                    result = randomNumber1 * randomNumber2;
-                    break;
-                default:
-            }
+        runGame(question, questionsAndAnswers);
 
-            if (answer == result) {
-                System.out.println("Correct!");
-                rightAnswers++;
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result + "'.");
-                System.out.println("Let's try again, " + name + "!");
+    }
+
+    public static String randomCalc(int randomNumber1, int randomNumber2, int operation) {
+
+        int result = 0;
+        switch (operation) {
+            case '+':
+                result = randomNumber1 + randomNumber2;
                 break;
-            }
+            case '-':
+                result = randomNumber1 - randomNumber2;
+                break;
+            case '*':
+                result = randomNumber1 * randomNumber2;
+                break;
+            default:
         }
-
-        if (rightAnswers == CORRECT_ANSWERS_TO_WIN) {
-            System.out.println("Congratulations, " + name + "!");
-        }
-
+        return Integer.toString((result));
     }
 
 }

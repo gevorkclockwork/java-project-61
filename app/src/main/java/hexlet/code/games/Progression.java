@@ -1,62 +1,50 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.Scanner;
 
-import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
-import static hexlet.code.Engine.BOUND_20;
-import static hexlet.code.Engine.FIRST_PROGRESSION_STEP;
-import static hexlet.code.Engine.LAST_PROGRESSION_STEP;
-import static hexlet.code.Engine.PROGRESSION_LENGTH;
+import static hexlet.code.Constants.*;
+import static hexlet.code.Engine.runGame;
+
 
 public class Progression {
 
-    public static void determineNumber(String name, Scanner scanner, Random random) {
+    public static void startGame() {
 
-        System.out.println("What number is missing in the progression?");
+        String question = "What number is missing in the progression?";
+        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
-        int rightAnswers = 0;
+        int[] progression = new int[PROGRESSION_LENGTH];
+        ;
+        int hiddenElement;
 
-        while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
+        for (var qwsAndAns : questionsAndAnswers) {
 
-            int[] progression = new int[PROGRESSION_LENGTH];
-
-            int step = random.nextInt(FIRST_PROGRESSION_STEP, LAST_PROGRESSION_STEP);
-            int number = random.nextInt(BOUND_20);
+            int step = new Random().nextInt(FIRST_PROGRESSION_STEP, LAST_PROGRESSION_STEP);
+            int number = new Random().nextInt(BOUND_20);
 
             for (int i = 0; i < progression.length; i++) {
                 progression[i] = number;
                 number += step;
             }
 
-            int hiddenElement = progression[random.nextInt(0, progression.length)];
+            hiddenElement = progression[new Random().nextInt(0, progression.length)];
 
-            System.out.print("Question: ");
+            StringBuilder progressionString = new StringBuilder();
             for (int i = 0; i < progression.length; i++) {
                 if (progression[i] == hiddenElement) {
-                    System.out.print(".." + " ");
+                    progressionString.append("..").append(" ");
                 } else {
-                    System.out.print(progression[i] + " ");
+                    progressionString.append(progression[i]).append(" ");
                 }
             }
-            System.out.println();
-            System.out.print("Your answer: ");
-            int hiddenElementByUser = scanner.nextInt();
 
-            if (hiddenElementByUser == hiddenElement) {
-                System.out.println("Correct!");
-                rightAnswers++;
-            } else {
-                System.out.println("'" + hiddenElementByUser + "' is wrong answer ;(. "
-                        + "Correct answer was '" + hiddenElement + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                break;
-            }
+            qwsAndAns[0] = String.valueOf(progressionString);
+            ;
+            qwsAndAns[1] = Integer.toString(hiddenElement);
         }
 
-        if (rightAnswers == CORRECT_ANSWERS_TO_WIN) {
-            System.out.println("Congratulations, " + name + "!");
-        }
+        runGame(question, questionsAndAnswers);
+
     }
 
 }

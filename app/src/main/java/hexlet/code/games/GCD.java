@@ -1,52 +1,50 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.Scanner;
 
-import static hexlet.code.Engine.BOUND_100;
-import static hexlet.code.Engine.CORRECT_ANSWERS_TO_WIN;
+import static hexlet.code.Constants.BOUND_100;
+import static hexlet.code.Constants.ROUNDS_COUNT;
+import static hexlet.code.Engine.runGame;
 
 public class GCD {
 
-    public static void calculateGCD(String name, Scanner scanner, Random random) {
+    public static void startGame() {
 
-        System.out.println("Find the greatest common divisor of given numbers.");
+        String question = "Find the greatest common divisor of given numbers.";
+        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
-        int rightAnswers = 0;
+        for (var qwsAndAns : questionsAndAnswers) {
+            int randomNumber1 = new Random().nextInt(BOUND_100);
+            int randomNumber2 = new Random().nextInt(BOUND_100);
 
-        while (rightAnswers != CORRECT_ANSWERS_TO_WIN) {
-            int randomNumber1 = random.nextInt(BOUND_100);
-            int randomNumber2 = random.nextInt(BOUND_100);
-
-            System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
-            System.out.print("Your answer: ");
-            int userGCD = scanner.nextInt();
-
-            int correctGCD =  findGCD(randomNumber1, randomNumber2);
-
-            if (userGCD == correctGCD) {
-                System.out.println("Correct!");
-                rightAnswers++;
-            } else {
-                System.out.println("'" + userGCD + "' is wrong answer ;(. Correct answer was '" + correctGCD + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                break;
-            }
+            qwsAndAns[0] = randomNumber1 + " " + randomNumber2;
+            qwsAndAns[1] = getGCD(randomNumber1, randomNumber2);
         }
 
-        if (rightAnswers == CORRECT_ANSWERS_TO_WIN) {
-            System.out.println("Congratulations, " + name + "!");
-        }
+        runGame(question, questionsAndAnswers);
 
     }
 
-    public static int findGCD(int number1, int number2) {
-        while (number2 != 0) {
-            int temp = number2;
-            number2 = number1 % number2;
-            number1 = temp;
+
+    public static String getGCD(int randomNumber1, int randomNumber2) {
+        int gcd = 0;
+
+        int maxNumber = Math.max(randomNumber1, randomNumber2);
+        int minNumber = Math.min(randomNumber1, randomNumber2);
+
+        while (gcd == 0) {
+
+            int remainderOfDivision = maxNumber % minNumber;
+
+            if (remainderOfDivision == 0) {
+                gcd = minNumber;
+            } else {
+                maxNumber = minNumber;
+                minNumber = remainderOfDivision;
+            }
         }
-        return number1;
+
+        return Integer.toString(gcd);
     }
 
 }
