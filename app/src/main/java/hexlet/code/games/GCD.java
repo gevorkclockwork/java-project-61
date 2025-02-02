@@ -8,12 +8,13 @@ import static hexlet.code.Engine.runGame;
 
 public class GCD {
 
+    private static final String GAME_RULES = "Find the greatest common divisor of given numbers.";
+
     public static void startGame() {
 
-        String question = "Find the greatest common divisor of given numbers.";
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
-        for (var qwsAndAns : questionsAndAnswers) {
+        for (String[] qwsAndAns : questionsAndAnswers) {
             int randomNumber1 = new Random().nextInt(BOUND_100);
             int randomNumber2 = new Random().nextInt(BOUND_100);
 
@@ -21,7 +22,7 @@ public class GCD {
             qwsAndAns[1] = getGCD(randomNumber1, randomNumber2);
         }
 
-        runGame(question, questionsAndAnswers);
+        runGame(GAME_RULES, questionsAndAnswers);
 
     }
 

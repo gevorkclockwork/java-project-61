@@ -9,19 +9,21 @@ import static hexlet.code.Engine.runGame;
 
 public class Prime {
 
+    private static final String GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+
     public static void startGame() {
 
-        String question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
-        for (var qwsAndAns : questionsAndAnswers) {
+        for (String[] qwsAndAns : questionsAndAnswers) {
             int randomNumber = new Random().nextInt(LOWER_BOUND_PRIME_NUMBERS, BOUND_100);
 
             qwsAndAns[0] = Integer.toString(randomNumber);
             qwsAndAns[1] = checkPrime(randomNumber);
         }
 
-        runGame(question, questionsAndAnswers);
+        runGame(GAME_RULES, questionsAndAnswers);
 
     }
 

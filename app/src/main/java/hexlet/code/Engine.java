@@ -4,18 +4,19 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static void runGame(String question, String[][] questionsAndAnswers) {
+    public static void runGame(String gameRules, String[][] questionsAndAnswers) {
 
         Scanner scanner = new Scanner(System.in);
 
         String name = Greet.greet();
-        System.out.println(question);
+        System.out.println(gameRules);
 
-        for (var qwsAndAns : questionsAndAnswers) {
+        for (String[] qwsAndAns : questionsAndAnswers) {
             System.out.println("Question: " + qwsAndAns[0]);
             System.out.print("Your answer: ");
             String userAnswer = scanner.nextLine();
-            if (userAnswer.toLowerCase().equals(qwsAndAns[1])) {
+
+            if (compareAnswers(userAnswer, qwsAndAns[1])) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'"
@@ -29,5 +30,10 @@ public class Engine {
 
 
     }
+
+    public static boolean compareAnswers(String userAnswer, String correctAnswer) {
+        return userAnswer.toLowerCase().equals(correctAnswer);
+    }
+
 
 }

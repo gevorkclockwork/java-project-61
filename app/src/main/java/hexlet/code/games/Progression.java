@@ -12,16 +12,18 @@ import static hexlet.code.Engine.runGame;
 
 public class Progression {
 
+    private static final String GAME_RULES = "What number is missing in the progression?";
+
+
     public static void startGame() {
 
-        String question = "What number is missing in the progression?";
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         int[] progression = new int[PROGRESSION_LENGTH];
 
         int hiddenElement;
 
-        for (var qwsAndAns : questionsAndAnswers) {
+        for (String[] qwsAndAns : questionsAndAnswers) {
 
             int step = new Random().nextInt(FIRST_PROGRESSION_STEP, LAST_PROGRESSION_STEP);
             int number = new Random().nextInt(BOUND_20);
@@ -33,22 +35,29 @@ public class Progression {
 
             hiddenElement = progression[new Random().nextInt(0, progression.length)];
 
-            StringBuilder progressionString = new StringBuilder();
-            for (int i = 0; i < progression.length; i++) {
-                if (progression[i] == hiddenElement) {
-                    progressionString.append("..").append(" ");
-                } else {
-                    progressionString.append(progression[i]).append(" ");
-                }
-            }
+            String progressionString = getProgressionString(progression, hiddenElement);
 
-            qwsAndAns[0] = String.valueOf(progressionString);
+            qwsAndAns[0] = progressionString;
 
             qwsAndAns[1] = Integer.toString(hiddenElement);
         }
 
-        runGame(question, questionsAndAnswers);
+        runGame(GAME_RULES, questionsAndAnswers);
 
+    }
+
+    public static String getProgressionString(int[] progression, int hiddenElement) {
+
+        StringBuilder progressionString = new StringBuilder();
+        for (int i = 0; i < progression.length; i++) {
+            if (progression[i] == hiddenElement) {
+                progressionString.append("..").append(" ");
+            } else {
+                progressionString.append(progression[i]).append(" ");
+            }
+        }
+
+        return String.valueOf(progressionString);
     }
 
 }
